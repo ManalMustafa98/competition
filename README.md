@@ -195,3 +195,16 @@ cd frontend
 npm run lint
 npm run build
 ```
+
+## 7. Deploying the Frontend to Vercel
+
+The Next.js application is located in the `frontend` directory, not at the repository root. When creating or configuring the Vercel project:
+
+1. Open **Project Settings** -> **General**.
+2. Set **Root Directory** to `frontend` and save.
+3. Leave the framework preset as **Next.js**.
+4. Use the default build command (`next build`) and output directory.
+5. Add `NEXT_PUBLIC_API_BASE_URL` under **Environment Variables**, using the deployed backend URL (for example, `https://your-backend.example.com`).
+6. Redeploy the project.
+
+If Vercel reports that it cannot detect a Next.js version, the project Root Directory is still set to the repository root. The `next` dependency is declared in `frontend/package.json`.
